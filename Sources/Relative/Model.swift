@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Model : String {
+internal enum Model : String {
     
     //Simulator
     case simulator     = "simulator/sandbox",
