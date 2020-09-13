@@ -43,6 +43,9 @@ public extension UIView {
         layoutIfNeeded()
     }
     
+    
+    /// helper function for setting translatesAutoresizingMaskIntoConstraints to false
+    /// - Parameter constraints: list of view constraints
     func layout(using constraints: [NSLayoutConstraint]) {
           translatesAutoresizingMaskIntoConstraints = false
           NSLayoutConstraint.activate(constraints)
