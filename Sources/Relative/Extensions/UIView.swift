@@ -7,9 +7,9 @@
 
 import UIKit
 
-extension UIView {
+public extension UIView {
     
-    public var parentViewController: UIViewController? {
+    var parentViewController: UIViewController? {
         var parentResponder: UIResponder? = self
         while parentResponder != nil {
             parentResponder = parentResponder!.next
@@ -20,21 +20,21 @@ extension UIView {
         return nil
     }
     
-    public func border(color: UIColor, width:CGFloat = 1, cornerRadius:CGFloat = 10){
+    func border(color: UIColor, width:CGFloat = 1, cornerRadius:CGFloat = 10){
         self.layer.borderWidth = width
         self.layer.borderColor = color.cgColor
         self.layer.cornerRadius = cornerRadius
         
     }
     
-    public func dropShadow(color: UIColor = .gray, shadowOffset: CGSize = CGSize(width: 0, height: 4), shadowRadius: CGFloat = 10, shadowOpacity: Float = 0.1) {
+    func dropShadow(color: UIColor = .gray, shadowOffset: CGSize = CGSize(width: 0, height: 4), shadowRadius: CGFloat = 10, shadowOpacity: Float = 0.1) {
         self.layer.shadowColor = color.cgColor
         self.layer.shadowOffset = shadowOffset
         self.layer.shadowRadius = shadowRadius
         self.layer.shadowOpacity = shadowOpacity
     }
     
-    public func bottomBorder(color: UIColor = UIColor.gray, weight:CGFloat = 1, offset: CGFloat = 0){
+    func bottomBorder(color: UIColor = UIColor.gray, weight:CGFloat = 1, offset: CGFloat = 0){
         self.layer.borderColor = color.cgColor
         let bottomBorder = CALayer()
         bottomBorder.frame = CGRect(x: 0, y: self.frame.height + offset, width: self.frame.width, height: weight)
@@ -43,7 +43,7 @@ extension UIView {
         layoutIfNeeded()
     }
     
-    public func layout(using constraints: [NSLayoutConstraint]) {
+    func layout(using constraints: [NSLayoutConstraint]) {
           translatesAutoresizingMaskIntoConstraints = false
           NSLayoutConstraint.activate(constraints)
       }
