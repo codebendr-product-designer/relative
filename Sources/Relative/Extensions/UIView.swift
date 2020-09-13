@@ -9,7 +9,7 @@ import UIKit
 
 extension UIView {
     
-    var parentViewController: UIViewController? {
+    public var parentViewController: UIViewController? {
         var parentResponder: UIResponder? = self
         while parentResponder != nil {
             parentResponder = parentResponder!.next
@@ -43,12 +43,12 @@ extension UIView {
         layoutIfNeeded()
     }
     
-    func layout(using constraints: [NSLayoutConstraint]) {
+    public func layout(using constraints: [NSLayoutConstraint]) {
           translatesAutoresizingMaskIntoConstraints = false
           NSLayoutConstraint.activate(constraints)
       }
       
-      func fitted(with parentView: UIView) {
+    public func fitted(with parentView: UIView) {
           layout(using: [
               centerXAnchor.constraint(equalTo: parentView.centerXAnchor),
               centerYAnchor.constraint(equalTo: parentView.centerYAnchor),
