@@ -8,7 +8,7 @@
 import UIKit
 
 
-extension UIControl {
+public extension UIControl {
     
     @objc class ClosureSleeve: NSObject {
         let closure: ()->()
@@ -22,7 +22,7 @@ extension UIControl {
         }
     }
     
-    public func addAction(for controlEvents: UIControl.Event = .touchUpInside, _ closure: @escaping ()->()) {
+     func addAction(for controlEvents: UIControl.Event = .touchUpInside, _ closure: @escaping ()->()) {
         let sleeve = ClosureSleeve(closure)
         addTarget(sleeve, action: #selector(ClosureSleeve.invoke), for: controlEvents)
         objc_setAssociatedObject(self, "[\(arc4random())]", sleeve, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
