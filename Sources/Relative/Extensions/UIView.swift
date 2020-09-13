@@ -48,13 +48,13 @@ extension UIView {
           NSLayoutConstraint.activate(constraints)
       }
       
-//    public func fitted(with parentView: UIView) {
-//          layout(using: [
-//              centerXAnchor.constraint(equalTo: parentView.centerXAnchor),
-//              centerYAnchor.constraint(equalTo: parentView.centerYAnchor),
-//              widthAnchor.constraint(equalTo: parentView.widthAnchor, multiplier: 0.8),
-//          ])
-//      }
+    public func fitted(with parentView: UIView) {
+          layout(using: [
+              centerXAnchor.constraint(equalTo: parentView.centerXAnchor),
+              centerYAnchor.constraint(equalTo: parentView.centerYAnchor),
+              widthAnchor.constraint(equalTo: parentView.widthAnchor, multiplier: 0.8),
+          ])
+      }
     
     class func fromNib<T: UIView>() -> T {
         return Bundle(for: T.self).loadNibNamed(String(describing: T.self), owner: nil, options: nil)![0] as! T
