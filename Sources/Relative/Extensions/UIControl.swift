@@ -5,7 +5,7 @@
 //  Created by codebendr on 15/09/2020.
 //
 
-import Foundation
+import UIKit
 
 public extension UIControl {
     
