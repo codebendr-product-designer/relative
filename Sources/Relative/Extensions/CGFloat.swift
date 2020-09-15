@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension CGFloat {
     static let small: CGFloat = 8
