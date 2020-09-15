@@ -5,11 +5,11 @@
 //  Created by codebendr on 15/09/2020.
 //
 
-import Foundation
+import UIKit
 
-public @nonobjc extension UIViewController {
+@nonobjc extension UIViewController {
     
-    func add(_ child: UIViewController, frame: CGRect? = nil) {
+    public func add(_ child: UIViewController, frame: CGRect? = nil) {
         addChild(child)
         
         if let frame = frame {
@@ -20,7 +20,7 @@ public @nonobjc extension UIViewController {
         child.didMove(toParent: self)
     }
     
-    func remove() {
+    public func remove() {
         willMove(toParent: nil)
         view.removeFromSuperview()
         removeFromParent()
