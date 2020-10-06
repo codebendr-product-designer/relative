@@ -33,10 +33,10 @@ class AttributedText {
         return self
     }
 
-    func font(_ name: FontName, font size:CGFloat = 16.0) -> AttributedText {
-        font(size,font: UIFont(name: name.rawValue, size: size)!)
-        return self
-    }
+//    func font(_ name: FontName, font size:CGFloat = 16.0) -> AttributedText {
+//        font(size,font: UIFont(name: name.rawValue, size: size)!)
+//        return self
+//    }
     
 //    func regular(font size:CGFloat = 16.0) -> AttributedText {
 //        font(size,font: UIFont(name: .OpenSansRegularFont, size: size)!)
