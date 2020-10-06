@@ -24,34 +24,15 @@ public class AttributedText {
         return self
     }
     
-    public func font(font: UIFont) {
+    public func font(font: UIFont) -> AttributedText {
         attribute.addAttribute(.font, value: font , range: range)
+        return self
     }
     
     public func change(color: UIColor, build: Bool = true) -> AttributedText {
         self.attribute.addAttribute(.foregroundColor, value: color , range: range)
         return self
     }
-
-//    func font(_ name: FontName, font size:CGFloat = 16.0) -> AttributedText {
-//        font(size,font: UIFont(name: name.rawValue, size: size)!)
-//        return self
-//    }
-    
-//    func regular(font size:CGFloat = 16.0) -> AttributedText {
-//        font(size,font: UIFont(name: .OpenSansRegularFont, size: size)!)
-//        return self
-//    }
-//
-//    func bold(font size:CGFloat = 16.0) -> AttributedText {
-//        font(size,font: UIFont(name: .OpenSansBoldFont, size: size)!)
-//        return self
-//    }
-//
-//    func semiBold(font size:CGFloat = 16.0) -> AttributedText {
-//        font(size,font: UIFont(name: .OpenSansSemiBoldFont, size: size)!)
-//        return self
-//    }
     
     public func build() -> NSMutableAttributedString {
         return attribute
