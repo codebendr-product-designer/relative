@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class AttributedText {
+public class AttributedText {
     
     private var attribute: NSMutableAttributedString
     private var range: NSRange
@@ -24,7 +24,7 @@ class AttributedText {
         return self
     }
     
-    fileprivate func font(_ size: CGFloat, font: UIFont) {
+    func font(font: UIFont) {
         attribute.addAttribute(.font, value: font , range: range)
     }
     
