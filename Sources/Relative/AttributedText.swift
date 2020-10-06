@@ -14,7 +14,7 @@ public class AttributedText {
     private var attribute: NSMutableAttributedString
     private var range: NSRange
     
-    init(text: String, textHighlight: String) {
+    public init(text: String, textHighlight: String) {
         self.attribute = NSMutableAttributedString(string: text)
         self.range = (text as NSString).range(of: textHighlight)
     }
