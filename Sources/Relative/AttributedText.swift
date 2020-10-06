@@ -53,7 +53,7 @@ public class AttributedText {
 //        return self
 //    }
     
-    func build() -> NSMutableAttributedString {
+    public func build() -> NSMutableAttributedString {
         return attribute
     }
 }
