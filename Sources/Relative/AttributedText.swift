@@ -19,16 +19,16 @@ public class AttributedText {
         self.range = (text as NSString).range(of: textHighlight)
     }
     
-    func range(text: String, textHighlight: String) -> AttributedText {
+    public func range(text: String, textHighlight: String) -> AttributedText {
         range = (text as NSString).range(of: textHighlight)
         return self
     }
     
-    func font(font: UIFont) {
+    public func font(font: UIFont) {
         attribute.addAttribute(.font, value: font , range: range)
     }
     
-    func change(color: UIColor, build: Bool = true) -> AttributedText {
+    public func change(color: UIColor, build: Bool = true) -> AttributedText {
         self.attribute.addAttribute(.foregroundColor, value: color , range: range)
         return self
     }
