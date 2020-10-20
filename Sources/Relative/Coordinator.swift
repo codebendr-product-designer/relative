@@ -10,7 +10,7 @@ import UIKit
 protocol Coordinator {
     //  var childCoordinators: [Coordinator] { get set }
     var navigationController: UINavigationController? { get set }
-    func start(_ mainViewController: DefaultViewController, finished: (UINavigationController)
+    func start(_ mainViewController: DefaultViewController, finished: UINavigationController)
 }
 
 public protocol DefaultViewController: UIViewController {
