@@ -1,5 +1,5 @@
 import XCTest
-@testable import relative
+@testable import Relative
 
 final class relativeTests: XCTestCase {
     func testExample() {
