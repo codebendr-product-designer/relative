@@ -21,7 +21,7 @@ public class MainCoordinator: Coordinator {
     
     public weak var navigationController: UINavigationController?
     
-    init(navigationController: UINavigationController) {
+    public init(navigationController: UINavigationController) {
         self.navigationController = navigationController
         navigationController.setNavigationBarHidden(true, animated: false)
     }
