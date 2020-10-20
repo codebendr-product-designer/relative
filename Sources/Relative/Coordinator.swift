@@ -26,7 +26,7 @@ public class MainCoordinator<T: DefaultViewController>: Coordinator {
         navigationController.setNavigationBarHidden(true, animated: false)
     }
     
-    init() {}
+    public init() {}
     
     func reset(animated: Bool = true) {
         navigationController?.popToRootViewController(animated: animated)
