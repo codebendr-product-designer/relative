@@ -36,7 +36,7 @@ public class MainCoordinator: Coordinator {
         navigationController?.popViewController(animated: animated)
     }
     
-    public func start(mainViewController: DefaultViewController, finished: (UINavigationController) -> ()) {
+    public func start(_ mainViewController: DefaultViewController, finished: (UINavigationController) -> ()) {
         let _navigationController = UINavigationController()
         let coordinator = MainCoordinator(navigationController: _navigationController)
         mainViewController.coordinator = coordinator
