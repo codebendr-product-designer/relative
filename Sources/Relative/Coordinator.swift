@@ -7,21 +7,21 @@
 
 import UIKit
 
-protocol Coordinator {
+public protocol Coordinator {
     //  var childCoordinators: [Coordinator] { get set }
     var navigationController: UINavigationController? { get set }
     func start(finished: (UINavigationController) -> ())
 }
 
-protocol DefaultViewController: UIViewController {
+public protocol DefaultViewController: UIViewController {
     var coordinator: Coordinator { get set }
 }
 
-class MainCoordinator<T: DefaultViewController>: Coordinator {
+public class MainCoordinator<T: DefaultViewController>: Coordinator {
     
     weak var navigationController: UINavigationController?
     
-    init(navigationController: UINavigationController) {
+    pinit(navigationController: UINavigationController) {
         self.navigationController = navigationController
         navigationController.setNavigationBarHidden(true, animated: false)
     }
@@ -34,7 +34,7 @@ class MainCoordinator<T: DefaultViewController>: Coordinator {
         navigationController?.popViewController(animated: animated)
     }
     
-    func start(finished: (UINavigationController) -> ()) {
+    static func start(finished: (UINavigationController) -> ()) {
         let _navigationController = UINavigationController()
         let coordinator = MainCoordinator(navigationController: _navigationController)
         let mainViewController = T.init()
