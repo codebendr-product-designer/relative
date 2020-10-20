@@ -19,7 +19,7 @@ public protocol DefaultViewController: UIViewController {
 
 public class MainCoordinator<T: DefaultViewController>: Coordinator {
     
-    weak var navigationController: UINavigationController?
+    public weak var navigationController: UINavigationController?
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
