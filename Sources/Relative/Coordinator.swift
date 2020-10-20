@@ -21,7 +21,7 @@ public class MainCoordinator<T: DefaultViewController>: Coordinator {
     
     weak var navigationController: UINavigationController?
     
-    pinit(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController) {
         self.navigationController = navigationController
         navigationController.setNavigationBarHidden(true, animated: false)
     }
@@ -34,7 +34,7 @@ public class MainCoordinator<T: DefaultViewController>: Coordinator {
         navigationController?.popViewController(animated: animated)
     }
     
-    static func start(finished: (UINavigationController) -> ()) {
+    public static func start(finished: (UINavigationController) -> ()) {
         let _navigationController = UINavigationController()
         let coordinator = MainCoordinator(navigationController: _navigationController)
         let mainViewController = T.init()
