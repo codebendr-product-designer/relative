@@ -14,7 +14,7 @@ public protocol Coordinator {
 }
 
 public protocol DefaultViewController: UIViewController {
-    var coordinator: Coordinator? { get set }
+    var coordinator: MainCoordinator? { get set }
 }
 
 public class MainCoordinator<T: DefaultViewController>: Coordinator {
@@ -32,7 +32,7 @@ public class MainCoordinator<T: DefaultViewController>: Coordinator {
         navigationController?.popToRootViewController(animated: animated)
     }
     
-    func back(animated: Bool = true) {
+    public func back(animated: Bool = true) {
         navigationController?.popViewController(animated: animated)
     }
     
@@ -45,7 +45,7 @@ public class MainCoordinator<T: DefaultViewController>: Coordinator {
         finished(_navigationController)
     }
     
-    func present(view: UIViewController, animated: Bool = true) {
+    public func present(view: DefaultViewController, animated: Bool = true) {
         navigationController?.pushViewController(view, animated: animated)
     }
     
