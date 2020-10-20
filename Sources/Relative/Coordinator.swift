@@ -10,14 +10,14 @@ import UIKit
 protocol Coordinator {
     //  var childCoordinators: [Coordinator] { get set }
     var navigationController: UINavigationController? { get set }
-    func start()
+    func start(finished: (UINavigationController) -> ())
 }
 
-protocol DefaultController: UIViewController {
+protocol DefaultViewController: UIViewController {
     var coordinator: Coordinator { get set }
 }
 
-class MainCoordinator<T: DefaultController>: Coordinator {
+class MainCoordinator<T: DefaultViewController>: Coordinator {
     
     weak var navigationController: UINavigationController?
     
@@ -34,10 +34,13 @@ class MainCoordinator<T: DefaultController>: Coordinator {
         navigationController?.popViewController(animated: animated)
     }
     
-    func start() {
+    func start(finished: (UINavigationController) -> ()) {
+        let _navigationController = UINavigationController()
+        let coordinator = MainCoordinator(navigationController: _navigationController)
         let mainViewController = T.init()
-        mainViewController.coordinator = self
-        navigationController?.pushViewController(mainViewController, animated: false)
+        mainViewController.coordinator = coordinator
+        _navigationController.pushViewController(mainViewController, animated: false)
+        finished(_navigationController)
     }
     
     func present(view: UIViewController, animated: Bool = true) {
