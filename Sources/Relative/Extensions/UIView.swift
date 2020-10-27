@@ -51,7 +51,15 @@ public extension UIView {
     
 }
 
+
+
 // MARK: Layout
+public enum LayoutPosition {
+    case leading
+    case trailing
+    case top
+    case bottom
+}
 
 public extension UIView {
     
