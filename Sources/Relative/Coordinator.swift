@@ -48,4 +48,8 @@ public class MainCoordinator: Coordinator {
         navigationController?.pushViewController(view, animated: animated)
     }
     
+    public func sheet(view: DefaultViewController, animated: Bool = true) {
+        navigationController?.present(view, animated: animated)
+    }
+    
 }
