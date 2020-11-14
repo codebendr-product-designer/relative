@@ -1,11 +1,3 @@
-//
-//  AttributedText.swift
-//  Banbo
-//
-//  Created by codebendr on 18/11/2019.
-//  Copyright © 2019 Nsano. All rights reserved.
-//
-
 import Foundation
 import UIKit
 
