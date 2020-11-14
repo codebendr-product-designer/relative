@@ -15,7 +15,6 @@ protocol Coordinator {
 
 public protocol DefaultViewController: UIViewController {
     var coordinator: MainCoordinator? { get set }
-    var fields: Any? { get set }
 }
 
 public class MainCoordinator: Coordinator {
