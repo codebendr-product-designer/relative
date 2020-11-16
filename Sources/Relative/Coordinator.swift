@@ -8,7 +8,7 @@
 import UIKit
 
 protocol Coordinator {
-    //  var childCoordinators: [Coordinator] { get set }
+    var data: Any? { get set }
     var navigationController: UINavigationController? { get set }
     func start(_ mainViewController: DefaultViewController, finished: (UINavigationController) -> ())
 }
@@ -20,10 +20,10 @@ public protocol DefaultViewController: UIViewController {
 public class MainCoordinator: Coordinator {
     
     public weak var navigationController: UINavigationController?
+    public var data: Any?
     
     public init(navigationController: UINavigationController) {
         self.navigationController = navigationController
-        navigationController.setNavigationBarHidden(true, animated: false)
     }
     
     public init() {}
@@ -36,12 +36,12 @@ public class MainCoordinator: Coordinator {
         navigationController?.popViewController(animated: animated)
     }
     
-    public func start(_ mainViewController: DefaultViewController, finished: (UINavigationController) -> ()) {
+    public func start(_ mainViewController: DefaultViewController, finished: (UINavigationController?) -> ()) {
         let _navigationController = UINavigationController()
         let coordinator = MainCoordinator(navigationController: _navigationController)
         mainViewController.coordinator = coordinator
-        _navigationController.pushViewController(mainViewController, animated: false)
-        finished(_navigationController)
+        mainViewController.coordinator?.present(view: mainViewController)
+        finished(self.navigationController)
     }
     
     public func present(view: DefaultViewController, animated: Bool = true) {
