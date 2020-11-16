@@ -37,11 +37,10 @@ public class MainCoordinator: Coordinator {
     }
     
     public func start(_ mainViewController: DefaultViewController, finished: (UINavigationController?) -> ()) {
-        let _navigationController = UINavigationController()
-        let coordinator = MainCoordinator(navigationController: _navigationController)
+        let coordinator = MainCoordinator(navigationController: UINavigationController())
         mainViewController.coordinator = coordinator
-        mainViewController.coordinator?.present(view: mainViewController)
-        finished(self.navigationController)
+        coordinator.present(view: mainViewController)
+        finished(coordinator.navigationController)
     }
     
     public func present(view: DefaultViewController, animated: Bool = true) {
