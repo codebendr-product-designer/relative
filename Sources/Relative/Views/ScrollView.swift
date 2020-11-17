@@ -21,7 +21,7 @@ public class ScrollView: UIScrollView {
     public init() {
         super.init(frame: .zero)
         keyboardDismissMode = .interactive
-        addSubview(view)
+        addSubview(view) 
         showsVerticalScrollIndicator = indicators
         showsHorizontalScrollIndicator = indicators
         layout()
