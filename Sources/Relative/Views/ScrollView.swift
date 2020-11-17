@@ -20,7 +20,7 @@ public class ScrollView: UIScrollView {
     
     public init() {
         super.init(frame: .zero)
-      //  view.backgroundColor = .systemPink
+        keyboardDismissMode = .interactive
         addSubview(view)
         showsVerticalScrollIndicator = indicators
         showsHorizontalScrollIndicator = indicators
