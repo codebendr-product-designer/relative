@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ScrollView: UIScrollView {
+public class ScrollView: UIScrollView {
     
     public let view = UIView()
     public var indicators: Bool = false {
