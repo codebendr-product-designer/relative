@@ -18,7 +18,7 @@ public class ScrollView: UIScrollView {
         }
     }
     
-    init() {
+    public init() {
         super.init(frame: .zero)
       //  view.backgroundColor = .systemPink
         addSubview(view)
