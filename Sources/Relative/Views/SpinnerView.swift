@@ -6,7 +6,7 @@ public class ActivityView: UIVisualEffectView {
     
     init() {
         super.init(effect: UIBlurEffect(style: .extraLight))
-        backgroundColor = UIColor.charcoal.withAlphaComponent(0.4)
+        backgroundColor = #colorLiteral(red: 0.2745098039, green: 0.2745098039, blue: 0.2745098039, alpha: 1).withAlphaComponent(0.4)
         contentView.addSubview(spinnerView)
         spinnerView.sized(in: self)
     }
@@ -23,7 +23,7 @@ public class ActivityView: UIVisualEffectView {
 @IBDesignable
 class SpinnerView: UIView {
     
-    var strokeColor: UIColor = .charcoal
+    var strokeColor: UIColor = #colorLiteral(red: 0.2745098039, green: 0.2745098039, blue: 0.2745098039, alpha: 1)
     var lineWidth: CGFloat = 6
     
     init(strokeColor: UIColor = .black, lineWidth: CGFloat = 5) {
