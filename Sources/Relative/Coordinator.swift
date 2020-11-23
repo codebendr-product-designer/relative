@@ -8,7 +8,6 @@
 import UIKit
 
 protocol Coordinator {
-    var data: Any? { get set }
     var navigationController: UINavigationController? { get set }
     func start(_ mainViewController: DefaultViewController, finished: (UINavigationController?) -> ())
 }
@@ -20,7 +19,6 @@ public protocol DefaultViewController: UIViewController {
 public class MainCoordinator: Coordinator {
     
     public weak var navigationController: UINavigationController?
-    public var data: Any?
     
     public init(navigationController: UINavigationController) {
         self.navigationController = navigationController
