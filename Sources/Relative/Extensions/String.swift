@@ -32,7 +32,6 @@ public extension String {
     //        let isMatched = NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: self)
     //        return isMatched
     //    }
-        
     var password: Bool {
         let regularExpression = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]{8,}"
         let passwordValidation = NSPredicate.init(format: "SELF MATCHES %@", regularExpression)
@@ -47,6 +46,15 @@ public extension String {
     var letters: Bool {
         let notLetters = NSCharacterSet.letters.union(NSCharacterSet.whitespaces).inverted
         return rangeOfCharacter(from: notLetters, options: .literal, range: nil) == nil
+    }
+    
+    func matches(_ expression: String) -> Bool {
+        if let range = range(of: expression, options: .regularExpression, range: nil, locale: nil) {
+            return range.lowerBound == startIndex && range.upperBound == endIndex
+            
+        } else {
+            return false
+        }
     }
     
     var email: Bool {
