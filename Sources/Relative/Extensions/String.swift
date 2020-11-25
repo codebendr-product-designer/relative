@@ -18,7 +18,7 @@ public extension String {
         self = self.capitalizingFirstLetter()
     }
     
-    func fullname(in: @escaping (String, String) -> Void) {
+    func fullname(_ completion: @escaping (String, String) -> Void) {
         var components = self.components(separatedBy: " ")
         if components.count > 0 {
             let fn = components.removeFirst()
