@@ -11,9 +11,9 @@ public class RelativeViewController<ChildView: RelativeView>: UIViewController, 
     public var hasBackButton: Bool = false {
         didSet {
             if hasBackButton {
-                coordinator?.navigationController?.barButton(.left(.blacknavi)).addAction { [weak coordinator] in
-                    coordinator?.back()
-                }
+//                coordinator?.navigationController?.barButton(.left(.blacknavi)).addAction { [weak coordinator] in
+//                    coordinator?.back()
+//                }
             }
         }
     }
@@ -29,7 +29,7 @@ public class RelativeViewController<ChildView: RelativeView>: UIViewController, 
         didSet {
             activityView.isHidden = activityIndicatorIsHidden
             self.view.endEditing(true)
-            navigationController?.isHidden(!activityIndicatorIsHidden)
+          //  navigationController?.isHidden(!activityIndicatorIsHidden)
         }
     }
     

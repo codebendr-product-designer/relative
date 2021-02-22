@@ -1,3 +1,4 @@
+import UIKit
 
 public protocol RelativeView: UIView {
     var data: Any? { get set }
