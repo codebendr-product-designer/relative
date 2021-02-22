@@ -35,7 +35,7 @@ public class RelativeViewController<ChildView: RelativeView>: UIViewController, 
     
     public typealias Finished = (_ coordinator: MainCoordinator?) -> ()
     
-    convenience init(_ type: RelativeViewType) {
+    public convenience init(_ type: RelativeViewType) {
         self.init()
         childView = .init(type: type)
     }
