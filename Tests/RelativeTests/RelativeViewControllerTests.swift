@@ -1,15 +1,49 @@
 import XCTest
-@testable import Relative
+import UIKit
+import Relative
 
-final class relativeTests: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(relative().text, "Hello, World!")
+class EmptyView: UIView, RelativeView {
+    var data: Any?
+    
+    let label =  UILabel().style { name in
+        name.textAlignment = .center
+        name.text = String(describing: self)
+        name.numberOfLines = 0
+    }
+    
+    required convenience init(type: RelativeViewType = .none) {
+        self.init()
+        
+        //create an empty view 
+    }
+    
+    
+}
+
+final class RelativeViewControllerTests: XCTestCase {
+    
+    func test_init_doesNotCallLifeCycleMethods() {
+        let loader = RelativeViewControllerSpy()
+        let  relativeViewController = RelativeViewController<EmptyView>()
+        
+        relativeViewController.didLoad = { _ in
+            loader.load()
+        }
+        
+        relativeViewController.willAppear = {
+            loader.load()
+        }
+        
+        XCTAssertEqual(relativeViewController.isViewLoaded, false)
+        XCTAssertEqual(loader.count, 0)
     }
 
-    static var allTests = [
-        ("testExample", testExample),
-    ]
+    class RelativeViewControllerSpy {
+        private(set) var count: Int = 0
+        
+        func load() {
+            count += 1
+        }
+    }
+  
 }
