@@ -8,7 +8,7 @@ public protocol RelativeViewModel: Relative {
 }
 
 extension RelativeViewModel {
-    func present() {
+    public func present() {
         view?.coordinator?.present(view: view!)
     }
 }
