@@ -1,5 +1,5 @@
 
-protocol RelativeViewModel: Relative {
+public protocol RelativeViewModel: Relative {
     var view: RelativeViewController<ChildView>? { get set }
     var coordinator: MainCoordinator? { get set }
     var childView: ChildView? { get set }
