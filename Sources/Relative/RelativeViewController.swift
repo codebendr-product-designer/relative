@@ -20,7 +20,7 @@ public class RelativeViewController<ChildView: RelativeView>: UIViewController, 
     
     #warning("investigate weak referencing")
     public var coordinator: MainCoordinator?
-    private var childView: ChildView?
+    private var childView: ChildView? = .init(.none)
     public var payload: Any?
     private let activityView = ActivityView().style { av in
         av.accessibilityLabel = "ActivityView"
@@ -35,14 +35,15 @@ public class RelativeViewController<ChildView: RelativeView>: UIViewController, 
     
     public typealias Finished = (_ coordinator: MainCoordinator?) -> ()
     
-    public convenience init(_ type: RelativeViewType = .none) {
+    public convenience init(_ type: RelativeViewType) {
         self.init()
-        childView = .init(type: type)
+        childView = .init(type)
+         
     }
 
-    public override func loadView() {
-        view = childView
-    }
+//    public override func loadView() {
+//        view = childView
+//    }
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +56,7 @@ public class RelativeViewController<ChildView: RelativeView>: UIViewController, 
         activityView.fitted(in: view)
         
     }
-    
+ 
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }

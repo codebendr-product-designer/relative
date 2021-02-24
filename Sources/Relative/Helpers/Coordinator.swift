@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol Coordinator {
+public protocol Coordinator {
     var navigationController: UINavigationController? { get set }
     func start(_ mainViewController: DefaultViewController, finished: (UINavigationController?) -> ())
 }
