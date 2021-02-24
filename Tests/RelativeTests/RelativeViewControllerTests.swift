@@ -31,7 +31,7 @@ class EmptyView: UIView, RelativeView {
 final class RelativeViewControllerTests: XCTestCase {
     
     func test_init_doesNotCallLifeCycleMethods() {
-        let (sut, loader) = makeSUT(with: EmptyView.self)
+        let (sut, loader) = makeSUT()
      
         sut.didLoad = { _ in
             loader.load()
@@ -42,7 +42,7 @@ final class RelativeViewControllerTests: XCTestCase {
     }
     
     func test_init_CallsViewDidLoad() {
-        let (sut, loader) = makeSUT(with: EmptyView.self)
+        let (sut, loader) = makeSUT()
      
         sut.didLoad = { _ in
             loader.load()
@@ -53,13 +53,54 @@ final class RelativeViewControllerTests: XCTestCase {
         XCTAssertEqual(loader.count, 1)
     }
     
+    func test_children_exist() {
+        let (sut, loader) = makeSUT()
+     
+        sut.didLoad = { _ in
+            loader.load()
+        }
+       
+        sut.loadViewIfNeeded()
+        
+        XCTAssertEqual(sut.view.subviews.count, 1)
+    }
+    
+    func test_adding_buttonView() {
+        let (sut, loader) = makeSUT()
+
+        
+        let button = UIButton().style { name in
+            name.setTitle("button", for: .normal)
+        }
+
+ 
+        sut.didLoad = { coordinator in
+            loader.load()
+            sut.view.addSubview(button)
+         
+           
+            button.addAction {
+                sut.activityIndicatorIsHidden = true
+            }
+            
+        }
+       
+     
+        sut.loadViewIfNeeded()
+        XCTAssertEqual(sut.view.subviews.count, 2)
+    }
+    
     //Helper
-    private func makeSUT<T: RelativeView>(with view: T.Type, file: StaticString = #file, line: UInt = #line) -> (sut: RelativeViewController<T>, loader: RelativeViewControllerSpy) {
+    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: RelativeViewController<EmptyView>, loader: RelativeViewControllerSpy) {
         let loader = RelativeViewControllerSpy()
-        let sut = RelativeViewController<T>()
-        trackForMemoryLeaks(loader, file: file, line: line)
-        trackForMemoryLeaks(sut, file: file, line: line)
+        let sut = RelativeViewController<EmptyView>()
+      //  trackForMemoryLeaks(loader, file: file, line: line)
+       // trackForMemoryLeaks(sut, file: file, line: line)
         return (sut, loader)
+    }
+    
+    private func anyView() -> RelativeView.Type {
+        return EmptyView.self
     }
     
 
