@@ -52,7 +52,7 @@ final class RelativeViewControllerTests: XCTestCase {
         XCTAssertEqual(loader.count, 1)
     }
     
-    func test_children_exist() {
+    func test_children_exist() throws {
         let (sut, loader) = makeSUT()
         
         sut.didLoad = { _ in
@@ -61,15 +61,23 @@ final class RelativeViewControllerTests: XCTestCase {
         
         sut.loadViewIfNeeded()
         
-        XCTAssertEqual(sut.view.subviews.count, 1)
+        let view = try XCTUnwrap(sut.view as? EmptyView)
+        
+        XCTAssertNotNil(view)
     }
     
     func test_children_button_exist() {
         let (sut, loader) = makeSUT()
         
+        let button = UIButton()
+        
         sut.didLoad = { _ in
             loader.load()
+            sut.view.addSubview(button)
         }
+        
+        XCTAssertEqual(loader.count, 1)
+        
     }
     
     
